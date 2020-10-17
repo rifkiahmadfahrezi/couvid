@@ -1,0 +1,122 @@
+@media screen and (max-width: 800px){
+	body{
+		overflow-x: hidden;
+	}
+	nav{
+		position: fixed!important;
+	}
+	header{
+		flex-direction: column-reverse;
+	}
+	header img{
+		margin-bottom: -20px;
+		width: 400px;
+	}
+	header .text{
+		margin-bottom: 100px;
+		width: 400px;
+		text-align:center;
+
+	}
+	main{
+		margin: 100px 20px;
+	}
+	header .text h1{
+		text-align: center!important;
+		margin: 0 auto;
+	}
+	header .text p{
+		width: 90%;
+		margin: 15px auto;
+
+	}
+	nav .menu-toggle{
+		display: inherit;
+		margin-right: 30px;
+	}
+	nav .nav-menu{
+		position: absolute;
+		height: 100vh;
+		background-color: #6cd0dc;
+		top: 50px;
+		display: flex;
+		right: 0;
+		width: 50%;
+		align-items: center;
+		margin-right: 0;
+		flex-direction: column;
+		transform: translateX(100%);
+		transition: 0.2s;
+		z-index: -1;
+	}
+	nav .logo{
+		margin-left: 30px;
+	}
+	nav .nav-menu a{
+		margin: 15px 30px;
+	}
+	header .info-box{
+		width: 95vw;
+		font-size: 0.8em;
+		height: 90px;
+	}
+
+	main .title{
+		font-size: 1.3em;
+	}
+
+	/*sectipon info*/
+	section#info img{
+		display: none;
+	}
+	section#info .container{
+		width: 90vw;
+	}
+
+	/*bagian footer*/
+	footer{
+		flex-direction: column-reverse;
+	}
+
+	footer .copyright{
+		margin-top: 50px;
+	}
+
+    /*Bagian konsultasi*/
+    main#konsultasi .container form{
+		width: 90vw;
+	}
+	main#konsultasi .container .image img{
+		display: none;
+	}
+
+
+	/*bagian page donasi*/
+	main#donasi .layanan{
+		margin: 50px 20px;
+	}
+	main#donasi form {
+		width: 90vw;
+		
+	}
+	main#donasi form .data-donatur .id-container img{
+		height: 100px;
+		width: 100px;
+	}
+
+	/*bagian page tes*/
+	main#tes .box .box-header{
+		font-size: .8em;
+	}
+	main#tes .box .row{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	main#tes .box .row .lokasi{
+		max-width: 100%;
+	}
+
+	main#tes .box .row .waktu{
+		margin: 10px 0;
+	}
+}

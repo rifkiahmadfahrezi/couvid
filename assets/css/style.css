@@ -1,0 +1,599 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins-Regular.ttf');
+}
+button{
+	outline: none;
+
+}
+button:active{
+	transform: scale(0.98);
+}
+body{
+	font-size: 18px;
+}
+
+input[type=text],input[type=number],textarea{
+	outline: none;
+	padding: 8px 10px;
+	margin: 10px 0;
+}
+
+.error{
+	color: red;
+	font-style: italic;
+}
+
+/*navbar*/
+
+nav{
+	display: flex;
+	justify-content: space-between;
+	height: 50px;
+	align-items: center;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	top: 0;
+	background-color: #6cd0dc;
+}
+nav .logo:hover{
+	letter-spacing: inherit;
+}
+nav .logo{
+	font-family: 'Poppins', sans-serif;
+	margin-left: 50px;
+	color: #2b3646;
+	transition: .2s;
+	letter-spacing: -3px;
+	text-transform: uppercase;
+}
+.slide{
+	transform: translateX(0)!important;
+}
+nav .nav-menu{
+	font-family: 'Poppins', sans-serif; 
+	font-size: 0.75em;
+	margin-right: 50px;
+}
+
+nav .nav-menu a{
+	margin: 0 20px;
+	transition: 0.2s;
+	color: #f0f0f0;
+	position: relative;
+
+}
+
+nav .nav-menu a:after{
+	content: '';
+	height: 1px;
+	width: 100%;
+	background-color: white;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transition: 0.2s;
+	transform: scaleX(0);
+	transform-origin: center;
+}	
+nav .nav-menu a:hover:after{
+	transform: scaleX(1);
+}
+nav .nav-menu a:hover{
+	color: white;
+	font-weight: 500;
+}
+
+ /*menu toggle*/
+ nav .menu-toggle{
+ 	width: 25px;
+ 	height: 20px;
+ 	display: none;
+ 	flex-direction: column;
+ 	justify-content: space-between;
+ }
+ nav .menu-toggle span{
+ 	height: 3px;
+ 	width: 25px;
+ 	background-color: white;
+ 	border-radius: 10px;
+ 	transition: 0.2s;
+ }
+ nav .menu-toggle input[type="checkbox"]{
+ 	position: absolute;
+ 	width: 25px;
+ 	height: 25px;
+ 	z-index: 1;
+ 	opacity: 0;
+ }
+ nav .menu-toggle input[type="checkbox"]:checked ~ span:nth-child(2){
+ 	transform: rotate(-45deg) translate(-5px,7px);
+ } 
+ nav .menu-toggle input[type="checkbox"]:checked ~ span:nth-child(3){
+ 	transform: scaleX(0);
+ }
+  nav .menu-toggle input[type="checkbox"]:checked ~ span:nth-child(4){
+ 	transform: rotate(45deg) translate(-5px,-7px);
+ }
+
+
+
+
+
+/*header*/
+header{
+	background-color: #6cd0dc;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 0 50px;
+	justify-content: space-around;
+}
+
+header .text h1{
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.2em;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
+	width: 90%;
+}
+header .text h1 span{
+	color: #005930;
+	font-weight: bolder;
+}
+
+header .text p{
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	font-size: 0.8em;
+	width: 310px;
+	line-height: 1.5;
+	margin-bottom: 30px;
+}
+
+header a{
+	padding: 10px 25px;
+	background-color: #00a8b0;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: 0.7em;
+	border-radius: 20px;
+}
+header a:hover{
+	opacity: 0.8;
+}
+header img{
+	pointer-events: none;
+	margin-bottom: 50px;
+}
+
+header .info-box{
+	position: absolute;
+	display: flex;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: white;
+	width: 70vw;
+	justify-content: space-around;
+	border-radius: 20px;
+	height: 100px;
+	align-items: center;
+	margin-bottom: -50px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.23);
+}
+header .info-box .box{
+	text-align:center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 0.8em;
+}
+
+.invalid{
+	border: 1px solid red!important;
+	color: red!important;
+	box-shadow: 0 0 0 4px rgba(255,0,0,0.4)!important;
+}
+
+/*main*/
+main {
+	margin:100px 50px;
+}
+
+main .title{
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	margin: 20px auto;
+}
+/*section info*/
+
+
+section#info {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 100px;
+}
+
+
+section#info .container{
+	display: flex;
+	overflow:hidden;
+	flex-direction: column;
+	width: 45vw;
+	max-width: 700px;
+	margin-bottom: 10px;
+}
+section#info .container .label{
+	display: flex;
+	justify-content: space-between;
+	background-color: #6cd0dc;
+	align-items: center;
+	padding: 5px 8px;
+	border-radius: 4px 4px 0 0 ;
+	color: white; 
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+}
+section#info .container .label h1{
+	font-size: 0.9em;
+	font-weight: normal;
+	line-height: 1.5;
+	letter-spacing: 1px;
+}
+section#info .container .text{
+	background-color: rgba(108,208,204,0.5);
+	padding: 5px 8px;
+	border-radius: 0 0 4px 4px;
+	color: #283646;
+	padding-top: 10px;
+	transform: scaleY(0);
+	transition: 0.4s;
+	height: 0;
+	transform-origin: top;
+}
+section#info .container .text p{
+	line-height: 1.5;
+}
+section#info .container .label.show-text ~ .text{
+	transform: scaleY(1)!important;
+	height: inherit!important;
+}
+section#info img{
+	height: 350px;
+	pointer-events: none;
+}
+section#info .accordions a{
+	color: #6cd0dc;
+	font-family: 'Poppins',sans-serif;
+	font-size: 0.8em;
+}
+section#info .container .text ul li{
+	list-style: circle;
+}
+
+/*footer*/
+footer{
+	padding: 20px 50px;
+	background-color: #6cd0dc;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: .8em;
+	display: flex;
+	justify-content: space-around;
+	bottom: 0;
+	align-items: center;
+	min-height: 20vh;
+
+}
+footer .menu{
+	display: flex;
+	flex-direction: column;
+}
+footer .menu h5{
+	font-weight: normal;
+	font-size: 1.2em;
+	margin-bottom:5px;
+	color: #00a8b0;
+}
+
+footer .menu a{
+	color: white;
+}
+footer .menu a:hover{
+	text-decoration: underline;
+}
+
+
+main.layanan .text{
+	margin: 50px 0;
+	text-align: center;
+	font-family: 'Poppins',sans-serif;
+}
+main.layanan .container{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/*Bagian page konsultasi*/
+
+
+main#konsultasi .container .image img{
+	height: 390px;
+}
+
+main#konsultasi .container form .input{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin: 10px 0;
+	transition: all 0.2s;
+	transition:all  0.2s;
+}
+main#konsultasi .container form{
+	width: 45vw;
+}
+main#konsultasi .container form label{
+	font-family: 'Poppins', sans-serif;
+	font-size: .8em;
+	margin-bottom: 5px;
+	color: #00a8b0;
+	bottom: 5px;
+}
+
+main#konsultasi .container form input,
+main#konsultasi .container form textarea{
+	outline: none;
+	padding: 8px 10px;
+	border-radius: 4px;
+	transition: 0.2s;
+	border: 1px solid #6cd0dc;
+}
+main#konsultasi .container form button{
+	padding: 8px 30px;
+	color: white;
+	border: none;
+	background-color: #6cd0dc;
+	font-family: 'Poppins', sans-serif;
+	border-radius: 2px;
+	cursor: pointer;
+	
+}
+
+main#konsultasi .container form input:focus,
+main#konsultasi .container form textarea:focus{
+	box-shadow: 0 0 0 3px rgba(108,208,204,0.3);
+}
+
+
+
+/*Bagian page donasi*/
+main#donasi form .title{
+	margin: 30px 0;
+}
+main#donasi form{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+main#donasi form .pilihan{
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+	grid-gap: 15px;
+}
+main#donasi form .pilihan .card{
+	height: 100px;
+	border: 2px solid #6cd0dc;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.1em;
+	border-radius: 5px;
+	font-family: 'Poppins', sans-serif;
+	background-color: white;
+	transition: .2s;
+	position: relative;
+	cursor: pointer;
+}
+main#donasi form .pilihan .card:hover{
+	background-color:rgba(108,208,204,0.5);
+}
+main#donasi form .pilihan input[type=radio]{
+	opacity: 0;
+}
+.terpilih{
+	background-color:rgba(108,208,204,0.9)!important;
+}
+.terpilih:after{
+	content:'';
+	width: 5px;
+	height: 10px;
+	border-right: 2px solid white;
+	border-bottom: 2px solid white;
+	transform: rotate(45deg);
+	transition: .2s;
+}
+
+main#donasi form button[type=submit]{
+	background-color: #6cd0dc!important;
+	height: 50px;
+	opacity: inherit;
+	cursor: pointer;
+	padding: 7px;
+	margin-top: 50px;
+	font-family: 'Poppins', sans-serif;
+	border: none;
+	color: white;
+}
+
+main#donasi form .metode-bayar .card img{
+	position: absolute;
+	width: 200px;
+}
+
+@keyframes fade-in {
+	to{
+		transform: scale(0);
+	}
+}
+@keyframes fade-out {
+	to{
+		transform: scale(1);
+	}
+}
+
+main#donasi form .data-donatur .input{
+	display: flex;
+	flex-direction: column;
+}
+
+main#donasi form .data-donatur input[type=text],
+main#donasi form .data-donatur textarea{
+	border: 2px solid #6cd0dc;
+	border-radius: 5px;
+}
+main#donasi form .data-donatur input[type=text]:focus,
+main#donasi form .data-donatur textarea:focus{
+	box-shadow: 0 0 0 4px rgba(108,208,204,0.3);
+}
+main#donasi form .data-donatur .input label{
+	font-family: 'Poppins', sans-serif;
+	margin: 15px 0;
+}
+main#donasi form .data-donatur .input label[for=check]{
+	font-weight: normal;
+	font-size: .8em;
+}
+main#donasi form .data-donatur .text{
+	font-family: 'Poppins', sans-serif;
+	text-align: left;
+}
+
+.modal-container{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.5);
+	width: 100vw;
+	height: 100vh;
+}
+
+.modal-container .modal-box{
+	background-color: white;
+	width: 80vw;
+	left: 50%;
+	top: 50%;
+	padding: 10px;
+	border-radius: 	7px;
+	transform: translate(-50%,-50%);
+	position:absolute;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-container .modal-box .text{
+	font-family: 	'Poppins', sans-serif;
+	font-size: 	.9em;
+	margin: 5px 0;
+}
+
+
+.modal-container .modal-box .info{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modal-container .modal-box .info img{
+	width: 	200px;
+	height: 	120px;
+}
+.modal-container .modal-box button{
+	margin: 15px auto 0;	
+	width: 	50%;
+	left: 	50%;
+	padding: 9px;
+	background-color: 	#6dc0cd;
+	border-radius: 	5px;
+	border: 	none;
+	color: 	white;
+	font-family: 	'Poppins', sans-serif;
+}
+
+/*bagian page tes gratis*/
+main#tes{
+	min-height: 70vh;
+}
+main#tes .box{
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	box-shadow: 0 0 8px #6dc0cd;
+	padding: 10px 15px;
+	border-radius: 6px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 0.9em;
+}
+main#tes .box .row{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 14px 0;
+}
+main#tes .box .row .lokasi{
+	max-width: 70%;
+}
+main#tes .box .row .lokasi h2,
+main#tes .box .row .waktu{
+	color: #6dc0cd;
+	font-weight: 400;
+}
+main#tes .box .box-header{
+	margin: 10px 0 20px;
+	text-align: center;
+}
+main#tes .box .box-body{
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
