@@ -556,7 +556,7 @@ main#tes .box .row{
 }
 main#tes .box .row .lokasi{
 	max-width: 70%;
-}
+}	
 main#tes .box .row .lokasi h2,
 main#tes .box .row .waktu{
 	color: #6dc0cd;
@@ -571,29 +571,34 @@ main#tes .box .box-body{
 }
 
 
+.tooltip{
+	position: relative;
+}
 
 
+.tooltip:after{
+	content: attr(data-tooltip-text);
+	position: absolute;
+	color: white;
+	font-size: 16px;
+	border-radius: 7px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -70%;
+	background: black;
+	padding: 5px 10px;
+	transition: .3s;
+	opacity: 0;
+	pointer-events: none;
+	width: 0%;
+	overflow-x: hidden;
+	transform-origin: center;
+	font-weight: 400;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.tooltip:hover:after{
+	top: -100%;
+	opacity: 1;
+	width: 100%;
+	pointer-events: inherit;
+}
