@@ -6,47 +6,40 @@ const deaths = document.querySelector('#deaths')
 
 function shortNum(str){
 	// ribuan
-	if (str.length >= 3 && str.length <= 5) return str.replace( /\d{3}$/ , ' ribu')
+	if (str.length >= 3 && str.length <= 6) {
+		return str.replace( /\d{3}$/ , ' ribu')
+	}
 	// jutaan
-	else if(str.length >= 6 && str.length <= 9) return str.replace( /\d{6}$/ ,`,${str[1]} juta`)
+	else if (str.length >= 7 && str.length <= 9) {
+		return str.replace( /\d{6}$/ ,`,${str[1]} juta`)
+	}
 }
 
 function showText(element, text){
 	return element.innerText = text
 }
 
+async function getVictims(){
+	const response = await fetch('https://covid19.mathdro.id/api/countries/Indonesia/deaths')
+	if (response.status == 200) {
+		return await response.json()
+	}else{
+		alert("Terjadi kesalahan saat load data")
+	}
+}
 
-// Using fetch API
-fetch('https://covid19.mathdro.id/api/countries/Indonesia/deaths')
-.then(res => res.json())
-.then(response => {
-			showText(conf, shortNum(response[0].confirmed.toString()))
-			showText(recovered, shortNum(response[0].recovered.toString()))
-			showText(deaths, shortNum(response[0].deaths.toString()))
+getVictims()
+.then(victim => {
+	showText(conf, shortNum(victim[0].confirmed.toString()))
+	if ( victim[0].recovered == null || recovered.innerText == 0) {
+		recovered.parentElement.style.display = 'none'
+	}else{
+		showText(recovered, victim[0].confirmed.toString())
+		recovered.setAttribute('data-tooltip-text',victim[0].confirmed.toLocaleString())
+	}
+	showText(deaths, shortNum(victim[0].deaths.toString()))
 
-			confirmed.setAttribute('data-tooltip-text', `${response[0].confirmed.toLocaleString()}`)
-			recovered.setAttribute('data-tooltip-text', `${response[0].recovered.toLocaleString()}`)
-			deaths.setAttribute('data-tooltip-text', `${response[0].deaths.toLocaleString()}`)
+	// set pop up text attributes
+	conf.setAttribute('data-tooltip-text',victim[0].confirmed.toLocaleString())
+	deaths.setAttribute('data-tooltip-text',victim[0].deaths.toLocaleString())
 })
-.catch(error => alert("Terjadi kesalahan silahkan refresh kembali"))
-
-
-// Using XHR
- 
-// window.addEventListener('load', () => {
-// const ajax = new XMLHttpRequest();
-// ajax.onreadystatechange = function() {
-// 	if (ajax.readyState == 4 && ajax.status == 200) {
-// 		let response = JSON.parse(ajax.responseText);
-// 		showText(conf, shortNum(response[0].confirmed.toString()))
-// 		showText(recovered, shortNum(response[0].recovered.toString()))
-// 		showText(deaths, shortNum(response[0].deaths.toString()))
-// 		confirmed.setAttribute('data-tooltip-text', `${response[0].confirmed.toLocaleString()}`)
-// 		recovered.setAttribute('data-tooltip-text', `${response[0].recovered.toLocaleString()}`)
-// 		deaths.setAttribute('data-tooltip-text', `${response[0].deaths.toLocaleString()}`)
-// 	}
-// };
-// ajax.open('get', `https://covid19.mathdro.id/api/countries/Indonesia/deaths`, true);
-// ajax.send();
-// }) 
-
